@@ -1,0 +1,13 @@
+# config/database.yml
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: applicant
+  password: temp123
+  host: localhost
+  port: 5432
+  pool: 5
+
+development:
+  <<: *default
+  database: blog_db

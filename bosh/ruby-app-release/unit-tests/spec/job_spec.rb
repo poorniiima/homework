@@ -83,15 +83,15 @@ describe 'ruby app main job:' do
     let(:conf_template) {job.template('cfg/config.yml')}
 
     it 'raises error if configs are wrong' do
-      expect {conf_template.render('port' => 1024)}.to raise_error 'Invalid port number'
-      expect {conf_template.render('port' => 7999)}.to raise_error 'Invalid port number'
-      expect {conf_template.render('port' => 8080)}.not_to raise_error 
+      expect {conf_template.render({'port' => 1024})}.to raise_error 'Invalid port number'
+      expect {conf_template.render({'port' => 7999})}.to raise_error 'Invalid port number'
+      expect {conf_template.render({'port' => 8080})}.not_to raise_error 
     end
 
     it 'raises error if yml is not parsable or malformed' do 
       parsable = true
       begin
-        yml = YAML.load(conf_template.render('port' => 8080))
+        yml = YAML.load(conf_template.render({'port' => 8080}))
       rescue StandardError => e
         parsable = false
       end
