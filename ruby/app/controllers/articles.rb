@@ -41,7 +41,7 @@ class ArticleController
 
   def delete_article(id)
     article = Article.find_by(id: id)
-  
+
     if article.nil?
       { ok: false, msg: 'Article not found' }
     else

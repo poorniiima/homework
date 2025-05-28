@@ -12,7 +12,7 @@ class ArticleRoutes < Sinatra::Base
     content_type :json
   end
 
-  get('/') do 
+  get('/') do
     summary = @articleCtrl.get_batch
 
     if (summary[:ok])
@@ -32,7 +32,7 @@ class ArticleRoutes < Sinatra::Base
     end
   end
 
-  post('/') do 
+  post('/') do
     payload = JSON.parse(request.body.read)
     summary = @articleCtrl.create_article(payload)
 
@@ -56,9 +56,9 @@ class ArticleRoutes < Sinatra::Base
     end
   end
 
-  delete('/:id') do 
+  delete('/:id') do
     summary = @articleCtrl.delete_article params['id']
-    
+
     if summary[:ok]
       { msg: 'Article deleted' }.to_json
     else
