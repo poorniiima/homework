@@ -14,4 +14,4 @@ properties:
     default: 8080
   bootstrap:
     description: "Specify the main file used to run the app"
-    default: "config.ru"
+    default: ""
